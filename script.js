@@ -1,3 +1,31 @@
+let score_good=parseInt(localStorage.getItem('score_good')) || 0;
+let score_evil=parseInt(localStorage.getItem('score_evil')) || 0;
+update_score()
+
+resscore = document.getElementById('res_score')
+
+resscore.addEventListener('click', function()
+	{
+		localStorage.setItem('score_good', 0);
+		localStorage.setItem('score_evil', 0);
+		score_evil = 0;
+		score_good = 0;
+		update_score();
+		save_score();
+	}
+)
+
+function save_score()
+{
+	localStorage.setItem('score_good', score_good);
+	localStorage.setItem('score_evil', score_evil);
+}
+
+function update_score()
+{
+	document.getElementById('score').textContent = `Добро: ${score_good} | Зло: ${score_evil}`
+}
+
 //@brief кнопка перезапуска
 const cornerbtn = document.querySelector('.corner-btn');
 
@@ -67,8 +95,10 @@ btn_massive.forEach(btn => {
 		draw++;
 
 		//@brief проверка на ничью
+		const resultdiv = document.getElementById('result')
 		if (draw == 9) {
-			console.log('победили атеисты');
+			document.querySelectorAll('.btn').forEach(btn => btn.remove());
+			resultdiv.textContent = 'Победили атеисты'
 		}
 
 		//@brief проверка равен ли какой-то ряд 3
@@ -76,9 +106,17 @@ btn_massive.forEach(btn => {
 			if (n == 3) {
 				//@brief сообщение о том кто победил
 				if (i <= 7) {
-					console.log('победило добро');
+					resultdiv.textContent = 'Победило добро';
+					score_good++;
+					save_score();
+					update_score();
+					document.querySelectorAll('.btn').forEach(btn => btn.remove())
 				} else {
-					console.log('победило зло');
+					resultdiv.textContent = 'Победило зло';
+					score_evil++;
+					save_score();
+					update_score();
+					document.querySelectorAll('.btn').forEach(btn => btn.remove())
 				}
 			}
 		});
@@ -95,7 +133,7 @@ document.addEventListener('keydown', function(event)
 		}
 	if (event.key == 'r')
 	{
-		button = document.querySelector('.corner-btn')
+		const button = document.querySelector('.corner-btn')
 		button.click()
 	}
 })
