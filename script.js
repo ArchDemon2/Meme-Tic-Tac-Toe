@@ -84,3 +84,18 @@ btn_massive.forEach(btn => {
 		});
 	});
 });
+document.addEventListener('keydown', function(event)
+{
+	if (event.key >= '1' && event.key <= '9')
+		{
+			const input = (event.key-1);
+			const button = btn_massive[input];
+			if (button && button.isConnected)
+			button.click();
+		}
+	if (event.key == 'r')
+	{
+		button = document.querySelector('.corner-btn')
+		button.click()
+	}
+})
