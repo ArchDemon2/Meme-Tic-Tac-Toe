@@ -10,6 +10,7 @@ body
 .my-table th,
 .my-table td
 {
+	right:50%;
 	width: 400px;
 	height: 400px;
 	/*padding: 6px 6px;*/
@@ -24,18 +25,18 @@ body
 }
 .corner-btn
 {
-position: fixed;
-right:20px;
-bottom: 20px;
-padding: 10px 20px;
-background: #4CAF50;
-color: white;
-border: none;
-border-radius: 10px;
-cursor: pointer;
-font-size: 16px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-z-index: 1000;
+	position: fixed;
+	right:20px;
+	bottom: 20px;
+	padding: 10px 20px;
+	background: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+	z-index: 1000;
 }
 .corner-btn:hover
 {
@@ -43,6 +44,37 @@ z-index: 1000;
 }
 .jojo-img
 {
-width: 400px;
-height: 200px;
+	width: 400px;
+	height: 200px;
+}
+#result
+{
+	position: fixed;
+	left: 580px;
+	margin-top: 40px
+}
+#score
+{
+	position: fixed;
+	left: 580px;
+	margin-top: 60px
+}
+#res_score
+{
+	position: fixed;
+	right:150px;
+	bottom: 20px;
+	padding: 10px 20px;
+	background: #ff0404;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+	z-index: 1000;
+}
+#res_score:hover
+{
+	background: #660202;
 }
